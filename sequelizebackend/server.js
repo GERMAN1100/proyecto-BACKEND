@@ -6,10 +6,10 @@ const VistaCatalogo = require ('./src/modelos/vistaunida')
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3008
-// const PORT = 3000
+
 
 app.use(express.json());
-//ENDPOINT CATEGORIAS , 
+
 app.get ("/categorias", async (_req, res) =>{
     try {
       await sequelize.authenticate();
@@ -42,15 +42,9 @@ app.get ("/categorias", async (_req, res) =>{
 
   app.get("/catalogo", async (_req, res) => {
     try {
-      // Asegúrate de que la conexión a la base de datos esté configurada correctamente
       await sequelize.authenticate();
       console.log('Conexión exitosa a la base de datos.');
-  
-      // No necesitas sincronizar ni autenticar el modelo Catalogo, ya que deseas acceder a la vista.
-  
-      // Realiza una consulta para obtener todos los elementos desde la vista
       const allCatalogo = await VistaCatalogo.findAll();
-  
       res.status(200).json(allCatalogo);
     } catch (error) {
       res.status(500).json({ error: 'Error en el servidor', descripcion: error.message });
@@ -58,12 +52,10 @@ app.get ("/categorias", async (_req, res) =>{
   });
 
 
-
-//ESTE TRAE TODOS LOS TITULOS.  anda bien
   app.get('/catalogo/TITULOS', async (req, res) => {
     try {
       const titulos = await Catalogo.findAll({
-        attributes: ['Titulo'], // Solo selecciona el campo 'Titulo'
+        attributes: ['Titulo'], 
       });
       res.status(200).json(titulos);
     } catch (error) {
@@ -72,8 +64,7 @@ app.get ("/categorias", async (_req, res) =>{
     }
   });
 
-  
-// ESTE TRAE POR ID   
+    
 app.get('/catalogo/titulos/:id', async (req, res) => {
   const { id } = req.params;
   try {
@@ -88,8 +79,7 @@ app.get('/catalogo/titulos/:id', async (req, res) => {
     res.status(500).send('Error interno del servidor');
   }
 });
-
-//BUSCA POR filtra por titulo       
+    
 app.get('/catalogo/Filtradotitulos/:titulo', async (req, res) => {
   const { titulo } = req.params;
   try {
@@ -108,8 +98,6 @@ app.get('/catalogo/Filtradotitulos/:titulo', async (req, res) => {
 });
 
 
-
-//FILTRADO POR CATEGORIA 
 app.get('/catalogo/FiltradoCategoria/:Categoria', async (req, res) => {
   const { Categoria } = req.params;
   try {
@@ -131,12 +119,11 @@ app.get('/catalogo/FiltradoCategoria/:Categoria', async (req, res) => {
 
 
 
-// filtra por genero este anda
+
 app.get('/catalogo/generos/:genero', async (req, res) => {
   try {
-    const genero = req.params.genero; // Obtén el género desde los parámetros de la ruta.
+    const genero = req.params.genero; 
    
-    // Realiza la consulta a la vista filtrando por el género.
     const Titulo = await VistacatalogoGeneros.findAll({
       where: {
       nombreGenero: genero
@@ -153,6 +140,7 @@ if (Titulo.length === 0) {
     res.status(500).json({ error: 'Hubo un error al buscar los Titulos.' });
   }
 });
+
 
 app.listen(3008, () => {
   console.log('Servidor en funcionamiento en el puerto 3008');
