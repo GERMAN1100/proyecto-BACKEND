@@ -2,7 +2,7 @@
 # ENDPOINTS
 # /CATEGORIAS
 
-En este endpoint, se busca que al ingresarlo, nos traiga  como resultado, los distintos tipos de Categorias que existen, en este caso el resultado sera los dos tipos que existentes:
+En este endpoint, se busca que al ingresarlo, nos traiga  como resultado los distintos tipos de Categorias que existen, en este caso el resultado sera:
 
 idCategoria 1, nombreCategoria: Serie;
 
@@ -17,7 +17,7 @@ En el caso de existir un error en el servidor, me dara un status de 500 con el m
 
 En este endpoint, se busca que al ingresarlo, nos traiga  como resultado, el catalogo completo existente, tal y como esta en el archivo json, osea, toda la informacion:
 
-idCatalogo, Titulo, Resumen, Poster, idCategoria,Generos, y por ultimo Actores.
+idCatalogo, Titulo, Resumen, Poster, idCategoria, Generos, y por ultimo Actores.
 
 En el caso de ingresar bien al endpoint nos dara un status de 200 OK y toda la informacion del catalogo se presentara.
 
@@ -25,7 +25,7 @@ En el caso de existir un error en el servidor, me dara un status de 500 con el m
 
 # /CATALOGO/TITULOS
 
-Este endpoint, se agrego, para que simplemente, traiga como resultado, todos los titulos que existen en el catalogo.
+Este endpoint se agrego, para que simplemente traiga como resultado todos los titulos que existen en el catalogo.
 
 En el caso de ingresar bien al endpoint nos dara un status de 200 OK, junto con la informacion correcta.
 
@@ -33,7 +33,10 @@ En el caso de existir un error en el servidor, me dara un status de 500 con el m
 
 
 # /CATALOGO/TITULOS/:id
+
 Este endpoint esta creado, para que se pueda buscar titulos por su ID, de esta forma, al ingresar un numero del 1 al 35, que son todos los titulos que existen en el catalogo, nos traera como resultado aquel que busquemos, junto con toda su informacion.
+
+/catalogo/tiutlos/4 (nos traera el titulo y toda su informacion)
 
 En el caso de ingresar bien al endpoint nos dara un status de 200 OK, junto con la informacion correcta.
 
@@ -58,15 +61,15 @@ En el caso de existir un error en el servidor, me dara un status de 500 con el m
 
 # /CATALOGO/FILTRADOCATEGORIA/:CATEGORIA
 
-Este endpoint esta creado, para que se pueda buscar en el catalogo por su categoria, por lo tanto, al ingresar una de las 2 categorias existentes (serie o pelicula) del catalogo, nos traera como resultado todos los titulos que contengan esa la misma, junto con toda su informacion.
+Este endpoint esta creado, para que se pueda buscar en el catalogo por su categoria, por lo tanto, al ingresar una de las 2 categorias existentes (serie o pelicula), nos traera como resultado todos los titulos que contengan esa misma, junto con toda su informacion.
 
 por ejemplo:
 
-/catalogo/FiltradoCategoria/Serie (traera todos titulo con categoria serie).
+/catalogo/FiltradoCategoria/Serie (traera todos titulos con categoria serie).
 
 En el caso de ingresar bien al endpoint nos dara un status de 200 OK, junto con la informacion correcta.
 
-En el caso de ingresar un titulo que no exista en el catalogo, este nos dara un status 404 con el mensaje, 'No se encontraron titulos para la categoria especificada'.
+En el caso de ingresar una categoria que no exista en el catalogo, este nos dara un status 404 con el mensaje, 'No se encontraron titulos para la categoria especificada'.
 
 En el caso de existir un error en el servidor, me dara un status de 500 con el mensaje, 'Error interno del servidor'.
 
@@ -80,6 +83,6 @@ por ejemplo:
 
 En el caso de ingresar bien al endpoint nos dara un status de 200 OK, junto con la informacion correcta.
 
-En el caso de ingresar un titulo que no exista en el catalogo, este nos dara un status 404 con el mensaje: 'No se encontraron títulos para el género especificado.'.
+En el caso de ingresar un genero que no exista en el catalogo, este nos dara un status 404 con el mensaje: 'No se encontraron títulos para el género especificado.'.
 
 En el caso de existir un error en el servidor, me dara un status de 500 con el mensaje, 'Hubo un error al buscar los Titulos'.
