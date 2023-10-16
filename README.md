@@ -1,10 +1,15 @@
 # PROYECTO BACKEND
 # ENDPOINTS
 # /CATEGORIAS
+
 En este endpoint, se busca que al ingresarlo, nos traiga  como resultado, los distintos tipos de Categorias que existen, en este caso el resultado sera los dos tipos que existentes:
+
 idCategoria 1, nombreCategoria: Serie;
+
 idCategoria 2, nombreCategoria: Pelicula;
+
 Al traerme el resultado correcto, me dara un status de 200 OK.
+
 En el caso de existir un error en el servidor, me dara un status de 500 con el mensaje 'Error en el servidor'
 
 
