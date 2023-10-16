@@ -184,7 +184,6 @@ JOIN Generos g ON gc.idGenero = g.idGenero;
 
 SELECT * FROM Vista_Catalogo_Generos;
 
--- Creamos una vista vwCatalogo para unificar la informacion a presentar en los get
 create view vistacatalogo as
 SELECT
 	c.idCatalogo,

@@ -17,8 +17,7 @@ app.get ("/categorias", async (_req, res) =>{
       await Categorias.sync();
       const allcategorias = await Categorias.findAll();
       res.status(200).json(allcategorias);
-  
-    } catch (error) {
+     } catch (error) {
       res.status(500).json({ error: 'error en el servidor', descripcion: error.message });
     }
   })
@@ -52,7 +51,7 @@ app.get ("/categorias", async (_req, res) =>{
   });
 
 
-  app.get('/catalogo/TITULOS', async (req, res) => {
+  app.get('/catalogo/TITULO', async (req, res) => {
     try {
       const titulos = await Catalogo.findAll({
         attributes: ['Titulo'], 
@@ -62,7 +61,7 @@ app.get ("/categorias", async (_req, res) =>{
       console.error('Error al obtener los títulos:', error);
       res.status(500).send('Error interno del servidor');
     }
-  });
+  });;
 
     
 app.get('/catalogo/titulos/:id', async (req, res) => {
@@ -137,7 +136,7 @@ if (Titulo.length === 0) {
    
    catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Hubo un error al buscar los Titulos.' });
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
 
