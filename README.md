@@ -1,8 +1,12 @@
 # PROYECTO BACKEND
+
 # ENDPOINTS
+
 # /CATEGORIAS
 
 En este endpoint, se busca que al ingresarlo, nos traiga  como resultado los distintos tipos de Categorias que existen, en este caso el resultado sera:
+
+/categorias
 
 idCategoria 1, nombreCategoria: Serie;
 
@@ -86,3 +90,20 @@ En el caso de ingresar bien al endpoint nos dara un status de 200 OK, junto con 
 En el caso de ingresar un genero que no exista en el catalogo, este nos dara un status 404 con el mensaje: 'No se encontraron títulos para el género especificado.'.
 
 En el caso de existir un error en el servidor, me dara un status de 500 con el mensaje, 'Hubo un error al buscar los Titulos'.
+
+# LISTA DE ENDPOINTS:
+
+/categorias
+
+/catalogo
+
+/catalogo/TITULO
+
+/catalogo/titulos/:id
+
+/catalogo/Filtradotitulos/:titulo
+
+/catalogo/FiltradoCategoria/:Categoria
+
+/catalogo/generos/:genero
+
